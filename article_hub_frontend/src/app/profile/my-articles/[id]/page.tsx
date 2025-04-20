@@ -87,15 +87,15 @@ export default function MyArticleDetail() {
         <>
             <Navbar />
             <div className="space-y-6 my-5 bg-dark-10">
-                <hr className="border-gray-60 dark:border-dark-15" />
+                <hr className="border-dark-15" />
                 <h1 className="max-w-7xl mx-auto text-2xl md:text-2xl lg:text-2xl font-kumbh text-white">
                     Update your Article
                 </h1>
-                <hr className="border-gray-60 dark:border-dark-15" />
+                <hr className="border-dark-15" />
             </div>
             <div className="max-w-7xl mx-auto mt-4 flex flex-col lg:flex-row gap-8 lg:gap-12 overflow-hidden p-6">
                 <div className="w-full lg:w-96 flex-shrink-0 space-y-4 bg-dark-15 p-6 rounded-lg">
-                    <label className="block text-sm text-gray-60 dark:text-dark-60 font-family-inter">
+                    <label className="block text-sm text-dark-60 font-family-inter">
                         Upload Image
                     </label>
                     <input
@@ -134,7 +134,7 @@ export default function MyArticleDetail() {
                     />
 
                     <div className="space-y-2 w-2/5">
-                        <label className="block text-gray-60 dark:text-dark-60 text-sm font-family-inter">
+                        <label className="block text-dark-60 text-sm font-family-inter">
                             Category
                         </label>
                         <select

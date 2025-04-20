@@ -62,7 +62,7 @@ export default function MyArticle() {
             <Navbar />
 
             <div className="space-y-5 my-12 bg-dark-10">
-                <hr className="border-gray-60 dark:border-dark-15" />
+                <hr className="border-dark-15" />
                 <div className="max-w-7xl mx-auto flex justify-between">
                     <h1 className="text-4xl md:text-5xl lg:text-4xl font-kumbh text-white">
                         My Articles
@@ -78,7 +78,7 @@ export default function MyArticle() {
                     </button>
                 </div>
 
-                <hr className="border-gray-60 dark:border-dark-15" />
+                <hr className="border-dark-15" />
             </div>
 
             <div className="max-w-7xl mx-auto  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
