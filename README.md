@@ -33,9 +33,9 @@ cd article_hub
 https://github.com/TesfalemNigussie/article_hub/blob/main/Article%20Hub.postman_collection.json
 
 
-## 📁 Project Structure
+### 3. Project structure 
 
-article_hub_backend/ 
+#### Backend 
 
 ```
 src/
@@ -80,7 +80,26 @@ src/
     └── prisma.service.ts
 ```
 
-article_hub_frontend/ 
+
+#### Key Modules
+article/: Handles article CRUD logic.
+
+comment/: Manages comments per article.
+
+auth/: Authentication module using JWT.
+
+common/: Shared decorators, guards, filters, and interceptors.
+
+database/: Prisma integration to access PostgreSQL.
+
+####  Design Decisions
+Prisma ORM provides type-safe database queries and migration support.
+
+Clean separation of concerns using modules, controllers, services, and DTOs.
+
+Global exception filters and guards improve security and developer experience.
+
+#### Frontend 
 
 ```
 article_hub_frontend/
@@ -104,6 +123,34 @@ article_hub_frontend/
 ├── hooks/
 └── modal/
 ```
+
+#### Folder Structure
+app/: Uses the App Router (introduced in Next.js 13+) to manage pages and layouts.
+
+api/: Handles client-side API utilities and fetch logic.
+
+components/: Reusable UI components like Navbar, cards, and modals.
+
+config/: Environment and base URL settings.
+
+hooks/: Custom React hooks (e.g., for user profile, authentication).
+
+models/: Objects that are used in the app.
+
+#### Design Decisions
+Modular structure keeps the codebase clean and maintainable.
+
+All dynamic pages (like article/[id]) follow the file-based routing.
+
+
+### 4. Third Party Packages used 
+
+ date-fns -> For format date 
+ react-toastify -> For showing toast message
+ bcrypt -> For hasing 
+ class-validator -> For validating Dtos
+ uuid -> Generate UUID
+
 
 ## 🚀 Getting Started
 
