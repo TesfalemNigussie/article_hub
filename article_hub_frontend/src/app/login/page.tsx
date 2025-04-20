@@ -6,6 +6,7 @@ import NavBar from "@/components/navbar";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/hooks/auth.hook";
+import { toast } from "react-toastify";
 
 export default function LoginPage() {
 
@@ -21,11 +22,16 @@ export default function LoginPage() {
         setIsLoading(true);
         setError(null);
         try {
-            const data = await login({ emailAddress, password });
-            saveUser(data)
+            const result = await login({ emailAddress, password });
+            setIsLoading(false);
+            if (result.statusCode == 400) {
+                toast.error(result.message.join(','))
+                return;
+            }
+            saveUser(result)
             router.push('/profile/my-articles');
         } catch (err) {
-            setError("Invalid credentials or server error.");
+            setError("Invalid credentials.");
         }
     };
 

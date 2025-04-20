@@ -3,13 +3,13 @@ import "./globals.css";
 import { AuthProvider } from "@/hooks/auth.hook";
 import { ToastContainer } from 'react-toastify';
 
-export const inter = Inter({
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
 });
 
-export const kumbh = Kumbh_Sans({
+const kumbh = Kumbh_Sans({
   subsets: ['latin'],
   variable: '--font-kumbh',
   display: 'swap',
@@ -23,7 +23,7 @@ export const metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: any
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>

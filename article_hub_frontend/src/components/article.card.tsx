@@ -11,7 +11,7 @@ export default function ArticleCard({ article }: { article: Article }) {
     };
 
     return (
-        <article className="flex flex-col lg:flex-row gap-8 lg:gap-12 bg-dark-10 rounded-lg overflow-hidden transition-transform hover:scale-[1.01] cursor-pointer" onClick={handleClick}>
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 bg-dark-10 rounded-lg overflow-hidden transition-transform hover:scale-[1.01] cursor-pointer" onClick={handleClick}>
             <div className="w-full lg:w-96 h-52 max-h-62 lg:h-auto flex-shrink-0">
                 <img
                     className="w-full h-full rounded-l-sm object-cover"
@@ -38,7 +38,7 @@ export default function ArticleCard({ article }: { article: Article }) {
 
                     <div className=' space-y-2'>
                         <span className="block text-dark-60 text-sm font-family-inter">Publication Date</span>
-                        <span className="block text-white text-sm  font-family-kumbh">{format(article.createdAt, "MMMM dd, yyyy")}</span>
+                        <span className="block text-white text-sm  font-family-kumbh">{format(article.createdAt, "MMMM dd, yyyy hh:mm")}</span>
                     </div>
 
                     <div className=' space-y-2'>
@@ -76,6 +76,6 @@ export default function ArticleCard({ article }: { article: Article }) {
                     </button>
                 </div>
             </div>
-        </article>
+        </div>
     );
 }

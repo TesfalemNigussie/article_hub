@@ -5,12 +5,14 @@ import NavBar from "@/components/navbar";
 import Link from "next/link";
 import { register } from "@/api/user";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 export default function RegisterPage() {
 
     const router = useRouter();
 
     const [error, setError] = useState<string | null>()
+    const [isLoading, setIsLoading] = useState(false)
 
     const [formData, setFormData] = useState({
         firstName: "",
@@ -28,19 +30,26 @@ export default function RegisterPage() {
     };
 
     const handleSubmit = async (e: any) => {
+
+        setIsLoading(true);
+
         e.preventDefault();
 
         setError(null);
 
         try {
             const { firstName, lastName, email, password } = formData;
-            await register({ firstName, lastName, emailAddress: email, password });
-
+            const result = await register({ firstName, lastName, emailAddress: email, password });
+            setIsLoading(false);
+            if (result.statusCode == 400) {
+                toast.error(result.message.join(','))
+                return;
+            }
             router.push('/login');
-
         } catch (error) {
             setError("Registration failed. Please try again.");
         }
+
     };
 
     return (
@@ -133,7 +142,8 @@ export default function RegisterPage() {
                                 type="submit"
                                 className="group relative w-full flex justify-center p-3 border border-transparent text-sm font-medium rounded-md text-black bg-yellow-55"
                             >
-                                Sign up
+                                {isLoading ? <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" /> : "Sign up"}
+
                             </button>
                         </div>
 

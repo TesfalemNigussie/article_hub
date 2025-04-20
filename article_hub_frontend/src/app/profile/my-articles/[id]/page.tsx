@@ -7,11 +7,13 @@ import Navbar from "@/components/navbar";
 import { Article, categories } from "@/model/article";
 import ConfirmDeleteModal from "@/components/confirm.delete.modal";
 import { toast } from "react-toastify";
+import { useAuth } from "@/hooks/auth.hook";
 
 export default function MyArticleDetail() {
 
     const params = useParams()
     const router = useRouter()
+    const { isUserLoggedIn } = useAuth();
 
     const id = params.id as string ?? ''
 
@@ -69,12 +71,17 @@ export default function MyArticleDetail() {
     }, [])
 
     useEffect(() => {
+        if (!isUserLoggedIn) {
+            router.push('/login')
+            return;
+        }
+
         setForm({
             title: article?.title ?? '',
             content: article?.content ?? '',
             category: article?.category ?? '',
         })
-    }, [article])
+    }, [article, isUserLoggedIn])
 
     return (
         <>

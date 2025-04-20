@@ -5,12 +5,14 @@ import Navbar from "@/components/navbar";
 import { categories } from "@/model/article";
 import { useUser } from "@/hooks/user.hook";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useAuth } from "@/hooks/auth.hook";
 
 export default function CreateArticlePage() {
 
     const router = useRouter()
     const { userId } = useUser();
+    const { isUserLoggedIn } = useAuth()
 
     const [form, setForm] = useState({
         title: "",
@@ -21,6 +23,13 @@ export default function CreateArticlePage() {
     const [isLoading, setIsLoading] = useState<boolean>();
     const [imageFile, setImageFile] = useState<File | null>(null);
     const [imagePreview, setImagePreview] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (!isUserLoggedIn) {
+            router.push('/login')
+            return;
+        }
+    }, [isUserLoggedIn])
 
     const handleChange = (e: any) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -51,6 +60,7 @@ export default function CreateArticlePage() {
 
             }
         }
+
         setIsLoading(false);
     };
 

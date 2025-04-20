@@ -2,7 +2,7 @@ export default function ArticleLoading() {
     return (
         <>
             {Array.from({ length: 5 }).map((_, index) => (
-                <article className="max-w-7xl mx-auto my-10 flex flex-col lg:flex-row gap-8 lg:gap-12 bg-dark-10 rounded-lg overflow-hidden animate-pulse">
+                <div key={index} className="max-w-7xl mx-auto my-10 flex flex-col lg:flex-row gap-8 lg:gap-12 bg-dark-10 rounded-lg overflow-hidden animate-pulse">
                     <div className="w-full lg:w-96 h-52 max-h-72 lg:h-auto flex-shrink-0 bg-dark-15" />
                     <div className="flex-1 space-y-8 md:space-y-4 py-5 px-4">
                         <div className="h-8 bg-dark-15 rounded w-3/4" />
@@ -30,12 +30,12 @@ export default function ArticleLoading() {
                             <div className="h-10 w-20 bg-dark-15 rounded-full" />
                         </div>
                     </div>
-                </article>
+                </div>
 
             ))}
             <div className="max-w-7xl mx-auto  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {Array.from({ length: 5 }).map((_, index) => (
-                    <article className="bg-dark-10 rounded-lg overflow-hidden">
+                    <div key={index} className="bg-dark-10 rounded-lg overflow-hidden">
                         {/* Image shimmer */}
                         <div className="w-full h-48 bg-dark-15  animate-pulse"></div>
 
@@ -66,7 +66,7 @@ export default function ArticleLoading() {
                                 </div>
                             </div>
                         </div>
-                    </article>
+                    </div>
                 ))}
             </div>
         </>)

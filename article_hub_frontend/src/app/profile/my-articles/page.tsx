@@ -8,12 +8,14 @@ import { useUser } from "@/hooks/user.hook";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import { useAuth } from "@/hooks/auth.hook";
 
 export default function MyArticle() {
 
     const router = useRouter()
 
     const { userId } = useUser();
+    const { isUserLoggedIn } = useAuth()
 
     const [page, setPage] = useState(1);
     const [articles, setArticles] = useState<Article[]>([]);
@@ -21,10 +23,15 @@ export default function MyArticle() {
     const [isFetchArticlesLoading, setIsFetchArticlesLoading] = useState(true);
 
     useEffect(() => {
+        if (!isUserLoggedIn) {
+            router.push('/login')
+            return;
+        }
+
         if (userId) {
             getMyArticles();
         }
-    }, [userId, page]);
+    }, [userId, page, isUserLoggedIn]);
 
     useEffect(() => {
         setPage(1)
@@ -40,7 +47,7 @@ export default function MyArticle() {
             );
             setHasMoreArticles(result.currentPage !== result.lastPage);
         } catch (error) {
-           toast.error('Error while fetching My Article')
+            toast.error('Error while fetching My Article')
         }
 
         setIsFetchArticlesLoading(false);

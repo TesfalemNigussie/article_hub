@@ -16,7 +16,7 @@ export default function ArticleGridItem({ article, isFromMyArticles }: { article
     };
 
     return (
-        <article className="bg-dark-10 rounded-lg overflow-hidden transition-transform hover:scale-[1.02] cursor-pointer" onClick={handleClick}>
+        <div className="bg-dark-10 rounded-lg overflow-hidden transition-transform hover:scale-[1.02] cursor-pointer" onClick={handleClick}>
             <div className="w-full h-48">
                 <img
                     className="w-full h-full object-cover"
@@ -41,7 +41,7 @@ export default function ArticleGridItem({ article, isFromMyArticles }: { article
                     </div>
                     <div className=' space-y-2'>
                         <span className="block text-dark-60 text-sm font-family-inter">Publication Date</span>
-                        <span className="text-white">{format(article.createdAt, "MMMM dd, yyyy")}</span>
+                        <span className="text-white">{format(article.createdAt, "MMMM dd, yyyy hh:mm")}</span>
                     </div>
                 </div>
 
@@ -77,6 +77,6 @@ export default function ArticleGridItem({ article, isFromMyArticles }: { article
                     </div>
                 </div>
             </div>
-        </article>
+        </div>
     );
 }
