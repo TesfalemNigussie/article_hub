@@ -1,0 +1,38 @@
+# Node modules
+**/node_modules/
+
+# Build output
+**/dist/
+**/.next/
+**/out/
+**/build/
+
+# Logs
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/pnpm-debug.log*
+
+# Environment variables
+**/.env*
+!**/.env.example
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Mac system files
+.DS_Store
+
+# TypeScript
+**/*.tsbuildinfo
+
+# Coverage (for test output)
+**/coverage/
+
+# OS-specific
+Thumbs.db

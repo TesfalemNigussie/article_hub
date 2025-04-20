@@ -1,0 +1,71 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Category {
+  TECHNOLOGY
+  LIFESTYLE
+  EDUCATION
+  HEALTH
+  TRAVEL
+}
+
+model User {
+  id           String     @id @default(uuid())
+  emailAddress String     @unique
+  firstName    String
+  lastName     String
+  password     String
+  articles     Article[]
+  comments     Comment[]
+  favorites    Favorite[]
+}
+
+model Article {
+  id        String     @id @default(uuid())
+  imageUrl  String
+  title     String
+  content   String
+  category  Category
+  authorId  String
+  author    User       @relation(fields: [authorId], references: [id])
+  comments  Comment[]
+  favorites Favorite[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@index([category])
+  @@index([authorId])
+  @@index([createdAt])
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  content   String
+  userId    String?
+  articleId String
+  user      User?    @relation(fields: [userId], references: [id])
+  article   Article  @relation(fields: [articleId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@index([articleId])
+  @@index([userId])
+}
+
+model Favorite {
+  id        String   @id @default(uuid())
+  userId    String
+  articleId String
+  user      User     @relation(fields: [userId], references: [id])
+  article   Article  @relation(fields: [articleId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@unique([userId, articleId])
+  @@index([userId])
+  @@index([articleId])
+}
