@@ -1,0 +1,83 @@
+# 📰 Article Hub
+
+A full-stack blogging application built with **Next.js** (frontend) and **NestJS** (backend). It supports article posting, comments, authentication, and user profiles.
+
+---
+
+## 📁 Project Structure
+
+article_hub_backend/ 
+
+
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/TesfalemNigussie/article_hub
+cd article-hub
+```
+
+### 2. Backend Setup
+
+#### 1. Install Dependencies
+
+```bash
+cd article_hub_backend
+npm install
+```
+
+#### 2. Environment File
+
+```
+DATABASE_URL="postgresql://${password}$:${user}$@{host}/articleHub"
+JWT_SECRET=
+
+```
+
+#### 3. Prisma Migration
+
+```bash
+
+npx prisma generate
+npx prisma migrate dev --name init
+
+```
+
+#### 4. Run the Server
+
+```
+npm run start:dev
+
+```
+
+Server will run on: http://localhost:3020
+
+
+### 3. Frontend  Setup
+
+#### 1. Install Dependencies
+
+```bash
+cd article_hub_frontend
+npm install
+```
+
+#### 2. Environment File
+
+```
+NEXT_PUBLIC_API_BASE_URL=http://localhost:3020
+
+```
+
+#### 4. Run the Frontend
+
+```
+npm run dev
+
+```
+
+
+
+

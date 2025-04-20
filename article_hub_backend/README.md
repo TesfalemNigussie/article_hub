@@ -30,63 +30,6 @@
 
 ```
 
-src/
-│
-├── app.module.ts
-├── main.ts
-│
-├── user/
-│   ├── user.module.ts
-│   ├── user.controller.ts
-│   ├── user.service.ts
-│   ├── user.entity.ts
-│   ├── dto/
-│   └── interfaces/
-│
-├── article/
-│   ├── article.module.ts
-│   ├── article.controller.ts
-│   ├── article.service.ts
-│   ├── article.entity.ts
-│   ├── dto/
-│   └── interfaces/
-│
-├── comment/
-│   ├── comment.module.ts
-│   ├── comment.controller.ts
-│   ├── comment.service.ts
-│   ├── comment.entity.ts
-│   ├── dto/
-│   └── interfaces/
-│
-├── favorite/
-│   ├── favorite.module.ts
-│   ├── favorite.service.ts
-│   ├── favorite.entity.ts
-│   └── interfaces/
-│
-├── auth/
-│   ├── auth.module.ts
-│   ├── auth.service.ts
-│   ├── auth.controller.ts
-│   ├── jwt.strategy.ts
-│   ├── auth.guard.ts
-│   └── dto/
-│
-├── common/
-│   ├── guards/
-│   ├── decorators/
-│   ├── interceptors/
-│   ├── filters/
-│   └── utils/
-│
-├── config/
-│   └── config.module.ts
-│   └── config.service.ts
-│
-└── database/
-    ├── prisma.module.ts (if using Prisma)
-    └── prisma.service.ts
 
 
 ```
