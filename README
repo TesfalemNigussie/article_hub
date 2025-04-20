@@ -1,14 +1,108 @@
-# 📰 Article Hub
+# 📰 Article Hub  
 
-A full-stack blogging application built with **Next.js** (frontend) and **NestJS** (backend). It supports article posting, comments, authentication, and user profiles.
+A full-stack blogging application built with **Next.js** (frontend) and **NestJS** (backend). Supports article posting, comments, authentication, and user profiles.
 
----
+## ✨ Features  
+- User authentication (Register/Login)  
+- Create, edit, and delete articles  
+- Comment system  
+- User profiles  
+- Responsive design  
+
+## 🛠️ Tech Stack  
+**Frontend:**  
+- Next.js · TypeScript · Tailwind CSS  
+- React Hook  
+
+**Backend:**  
+- NestJS · PostgreSQL · Prisma ORM  
+- JWT Authentication · Class Validator  
+
+## 🚀 Quick Start  
+
+### 1. Clone & Setup  
+
+```
+git clone https://github.com/TesfalemNigussie/article_hub
+cd article_hub
+```
+
+### 2. Postman Collection  
+
+https://github.com/TesfalemNigussie/article_hub/blob/main/Article%20Hub.postman_collection.json
+
 
 ## 📁 Project Structure
 
 article_hub_backend/ 
 
+```
+src/
+│
+├── app.module.ts
+├── main.ts
+│
+├── article/
+│   ├── article.module.ts
+│   ├── article.controller.ts
+│   ├── article.service.ts
+│   ├── article.entity.ts
+│   ├── dto/
+│   └── interfaces/
+│
+├── comment/
+│   ├── comment.module.ts
+│   ├── comment.controller.ts
+│   ├── comment.service.ts
+│   ├── comment.entity.ts
+│   ├── dto/
+│   └── interfaces/
+│
+├── auth/
+│   ├── auth.module.ts
+│   ├── auth.service.ts
+│   ├── auth.controller.ts
+│   ├── jwt.strategy.ts
+│   ├── auth.guard.ts
+│   └── dto/
+│
+├── common/
+│   ├── guards/
+│   ├── decorators/
+│   ├── interceptors/
+│   ├── filters/
+│   └── utils/
+│
+├── config/
+│
+└── database/
+    └── prisma.service.ts
+```
 
+article_hub_frontend/ 
+
+```
+article_hub_frontend/
+├── api/
+├── app/
+│   ├── article/
+│   │   ├── page.tsx
+│   │   ├── loading.tsx
+│   │   └── [id]/
+│   │       ├── page.tsx
+│   │       └── loading.tsx
+│   ├── login/
+│   │   └── page.tsx
+│   ├── profile/
+│   │   ├── create-article/
+│   │   └── update-article/
+│   └── register/
+├── assets/
+├── components/
+├── config/
+├── hooks/
+└── modal/
+```
 
 ## 🚀 Getting Started
 
@@ -30,16 +124,14 @@ npm install
 
 #### 2. Environment File
 
-```
+```bash
 DATABASE_URL="postgresql://${password}$:${user}$@{host}/articleHub"
 JWT_SECRET=
-
 ```
 
 #### 3. Prisma Migration
 
 ```bash
-
 npx prisma generate
 npx prisma migrate dev --name init
 
@@ -47,12 +139,11 @@ npx prisma migrate dev --name init
 
 #### 4. Run the Server
 
-```
+```bash
 npm run start:dev
-
 ```
 
-Server will run on: http://localhost:3020
+**Server will run on: http://localhost:3020**
 
 
 ### 3. Frontend  Setup
@@ -77,7 +168,3 @@ NEXT_PUBLIC_API_BASE_URL=http://localhost:3020
 npm run dev
 
 ```
-
-
-
-
