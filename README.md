@@ -2,6 +2,8 @@
 
 A full-stack blogging application built with **Next.js** (frontend) and **NestJS** (backend). Supports article posting, comments, authentication, and user profiles.
 
+Live Demo at http://207.244.238.96:3000
+
 ## ✨ Features  
 - User authentication (Register/Login)  
 - Create, edit, and delete articles  
